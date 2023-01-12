@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de pacientes
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de paciente</h1>
+    <h2>Crear nuevo paciente </h2> <a href="/patients/create-patient" class="btn btn-primary">Crear</a>
+
+    {% for patient in patients %}
+
+
+        <div class="card" style="width: 18rem;">
+            <h3 style="color: blue;" class="card-text">DNI :{{patient.dni}}</h3>
+
+            <h5 class="card-title">Nombre y Apellido : {{patient.name}}</h5>
+            <p class="card-text"> Direccion : {{patient.address}}</p>
+            
+            {% if patient.first_query == True %}
+                <p>Paciente ya vino</p>
+            {% else %}
+                <p>Paciente viene por primera vez</p>
+            {% endif %}
+            
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock %}

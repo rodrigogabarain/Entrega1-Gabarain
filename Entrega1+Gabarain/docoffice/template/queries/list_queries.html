@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Listado de Consultas
+{% endblock %}
+
+{% block content %}
+
+    <h1>Listado de consultas</h1>
+    <h2>Cargar consulta </h2> <a href="/queries/create-query" class="btn btn-primary">Crear</a>
+
+    {% for query in queries %}
+
+
+        <div class="card" style="width: 18rem;">
+            <h3 style="color: rgb(255, 0, 34);" class="card-text">Consulta N:{{query.n_query}}</h3>
+            <h5 style="color: rgb(255, 174, 0);" class="card-text">DNI :{{query.dni}}</h5>
+            <p class="card-title">Edad : {{query.age}} años</p>
+            <p class="card-title">Talla : {{query.height}} cm</p>
+            <p class="card-text"> Peso : {{query.weight}} kg</p>
+            
+            {% if query.vaccines == True %}
+                <p>Calendario de Vacunas completo</p>
+            {% else %}
+                <p>Le faltan vacunas</p>
+            {% endif %}
+            
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock %}
