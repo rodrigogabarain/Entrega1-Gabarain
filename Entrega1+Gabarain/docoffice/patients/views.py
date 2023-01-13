@@ -21,6 +21,7 @@ def create_patient(request):
                 address = form.cleaned_data['address'],
                 dni = form.cleaned_data['dni'],
                 
+                
                 first_query = form.cleaned_data['first_query'],
             )
             context ={

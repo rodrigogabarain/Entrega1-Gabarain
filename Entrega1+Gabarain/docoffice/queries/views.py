@@ -18,10 +18,10 @@ def create_query(request):
         if form.is_valid():
             Queries.objects.create(
                 dni= form.cleaned_data['dni'],
-                n_query  = form.cleaned_data['n_query'],
-                weight = form.cleaned_data['weight'],
-                height = form.cleaned_data['height'],
-                age = form.cleaned_data['age'],
+                n_query= form.cleaned_data['n_query'],
+                weight= form.cleaned_data['weight'],
+                height= form.cleaned_data['height'],
+                age= form.cleaned_data['age'],
                 
                 vaccines= form.cleaned_data['vaccines'],
             )
@@ -33,7 +33,7 @@ def create_query(request):
                 'form_errors' : form.errors,
                 'form' :QueryForm()
             }
-        return render (request,'queries/create_query.html',context=context)
+        return render (request,'queries/create_query.html', context=context)
 
 def list_queries(request):
     if 'search' in request.GET:
@@ -44,4 +44,4 @@ def list_queries(request):
     context ={
         'queries':queries,
     }
-    return render(request, 'queries/list_queries.html',context=context )
+    return render(request, 'queries/list_queries.html', context=context )
